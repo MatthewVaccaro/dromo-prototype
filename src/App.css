@@ -1,0 +1,128 @@
+:root {
+  --blue: #3b6fc8;
+  --black: #333;
+  --text: #666;
+}
+
+html {
+  background: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.App {
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
+.container {
+  display: flex;
+  gap: 24px;
+}
+
+/* -------- */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  background-color: var(--blue);
+}
+
+.logo {
+  max-height: 28px;
+}
+
+/* ----------- */
+
+.uploadContainer {
+  background: white;
+  border-radius: 6px;
+  padding: 24px;
+  width: 100%;
+  max-width: 50%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.buttonSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--blue);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.disabled {
+  color: #999;
+}
+
+.divider {
+  background: #e6e6e6;
+  width: 2px;
+  border-radius: 4px;
+  height: 48px;
+}
+
+.dataState {
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #e6e6e6;
+  color: #666;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.on {
+  background: #c2ecc2;
+  color: #1e711e;
+}
+
+li {
+  margin: 6px 0px;
+  color: var(--text);
+}
+
+/* ---UTILS---- */
+.my-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.alignRight {
+  display: flex;
+  justify-content: end;
+}
+
+.text-White {
+  color: white;
+}
+
+.icon {
+  max-width: 24px;
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
