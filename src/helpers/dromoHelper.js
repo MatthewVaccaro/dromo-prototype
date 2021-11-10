@@ -27,18 +27,6 @@ export const baseStudentFields = [
 
 export const baseTeacherFields = [
   {
-    label: "Honorific",
-    key: "Honorific",
-    description: "choose between: Dr. Mr. Ms. Mrs.",
-    type: "select",
-    selectOptions: [
-      { value: "dr", label: "DR." },
-      { value: "mr", label: "MR." },
-      { value: "ms", label: "MS." },
-      { value: "mrs", label: "MRS." },
-    ],
-  },
-  {
     label: "First Name",
     key: "first_name",
     description: "Teacher's first name",
