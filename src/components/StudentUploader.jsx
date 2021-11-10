@@ -6,13 +6,19 @@ import editIconDisabled from "../asset/icons/editIconDisabled.svg";
 import studentAvatar from "../asset/studentAvatar.svg";
 import {
   baseStudentFields,
+  baseTeacherFields,
   cleanResults,
   rosterCount,
+  uniqueRosters,
 } from "../helpers/dromoHelper";
 
 function StudentUploader() {
   const getLocalStudents = localStorage.getItem("studentData")
     ? JSON.parse(localStorage.getItem("studentData"))
+    : 0;
+
+  const getLocalRosters = localStorage.getItem("uniqueRosters")
+    ? JSON.parse(localStorage.getItem("uniqueRosters"))
     : 0;
 
   const localStudents = getLocalStudents
@@ -22,6 +28,13 @@ function StudentUploader() {
       }
     : 0;
 
+  const localRosters = getLocalRosters
+    ? getLocalRosters.map((value) => {
+        return { value, label: value };
+      })
+    : 0;
+
+  console.log("XXX", localRosters);
   const [students, setStudents] = useState(localStudents);
 
   const key = process.env.REACT_APP_DROMO_KEY;
@@ -33,9 +46,23 @@ function StudentUploader() {
     companyName: "12345",
   };
 
+  if (localRosters !== 0) {
+    localRosters.map((roster, i) => {
+      baseTeacherFields.push({
+        label: "roster" + (i + 1),
+        key: "roster_" + (i + 1),
+        type: "select",
+        selectOptions: localRosters,
+      });
+    });
+  }
+
   const resultHandler = (res) => {
     const cleanData = cleanResults(res);
-    console.log("res: --->", cleanData.length);
+    const unique = uniqueRosters(cleanData);
+    console.log("unique: --->", unique);
+
+    localStorage.setItem("uniqueRosters", JSON.stringify(unique));
 
     setStudents({
       studentLength: cleanData.length,
@@ -68,17 +95,10 @@ function StudentUploader() {
               allowCustomFields: true,
               importIdentifier: "Studnets",
               developmentMode: true,
+              allowInvalidSubmit: true,
             }}
             user={siteLeader}
             onResults={resultHandler}
-            columnHooks={[
-              {
-                fieldName: "roster",
-                callback: (values) => {
-                  return console.log(values);
-                },
-              },
-            ]}
           >
             Add Data
           </DromoUploader>

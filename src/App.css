@@ -17,6 +17,7 @@ html {
 .container {
   display: flex;
   gap: 24px;
+  max-width: 1140px;
 }
 
 /* -------- */
@@ -101,6 +102,22 @@ li {
   color: var(--text);
 }
 
+/* ------------ */
+
+.templateCard {
+  background: white;
+  border-radius: 6px;
+  padding: 24px;
+  width: 100%;
+  max-width: 50%;
+}
+
+.linkGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* ---UTILS---- */
 .my-16 {
   margin-top: 16px;
@@ -125,4 +142,28 @@ a {
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
+}
+
+.flexAlignCenter {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+p {
+  color: var(--text);
+  line-height: 26px;
+  margin-top: 6px;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+.mt-12 {
+  margin-top: 12px;
 }

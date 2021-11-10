@@ -50,6 +50,10 @@ export const baseTeacherFields = [
     description: "Teacher's last name",
     alternateMatches: ["lame", "surname", "family name"],
   },
+  {
+    label: "Email",
+    key: "email",
+  },
 ];
 
 for (var i = 1; i < 11; i++) {
@@ -57,6 +61,19 @@ for (var i = 1; i < 11; i++) {
     label: "roster" + i,
     key: "roster_" + i,
   });
+}
+
+export function uniqueRosters(cleanData) {
+  var unique = ["n/a"];
+  cleanData.map((obj) => {
+    for (var key in obj) {
+      if (key.includes("roster") && !unique.includes(obj[key])) {
+        unique.push(obj[key]);
+      }
+    }
+  });
+
+  return unique;
 }
 
 // const fakeRosterList = ["PE", "Science", "Math"];

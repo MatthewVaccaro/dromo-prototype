@@ -4,7 +4,7 @@ import addIcon from "../asset/icons/addIcon.svg";
 import editIcon from "../asset/icons/editIcon.svg";
 import editIconDisabled from "../asset/icons/editIconDisabled.svg";
 import teacherAvatar from "../asset/teacherAvatar.svg";
-import { baseTeacherFields } from "../helpers/dromoHelper";
+import { baseTeacherFields, cleanResults } from "../helpers/dromoHelper";
 
 function TeacherUpload() {
   const getLocalTeachers = localStorage.getItem("teacherData")
@@ -29,11 +29,12 @@ function TeacherUpload() {
   };
 
   const resultHandler = (res) => {
-    console.log("res:", res);
+    const cleanData = cleanResults(res);
+    console.log("res:", cleanData);
     setTeachers({
-      teacherLength: res.length,
+      teacherLength: cleanData.length,
     });
-    localStorage.setItem("teacherData", JSON.stringify(res));
+    localStorage.setItem("teacherData", JSON.stringify(cleanData));
   };
 
   return (
@@ -63,6 +64,28 @@ function TeacherUpload() {
             }}
             user={siteLeader}
             onResults={resultHandler}
+            rowHooks={[
+              (record) => {
+                const newRecord = record;
+                for (var key in newRecord.row) {
+                  if (
+                    key.includes("roster") &&
+                    newRecord.row[key].value === ""
+                  ) {
+                    console.log("found", newRecord.row[key]);
+                    newRecord.row[key].value = "n/a";
+                    newRecord.row[key].info = [
+                      {
+                        message:
+                          "Updated to N/A because it was empty, no need to edit.",
+                        level: "info",
+                      },
+                    ];
+                  }
+                }
+                return newRecord;
+              },
+            ]}
           >
             Add Data
           </DromoUploader>
@@ -84,3 +107,9 @@ function TeacherUpload() {
 }
 
 export default TeacherUpload;
+
+// roster_1: Object { value: "" }
+// ​​
+// roster_15: Object { value: "" }
+// ​​
+// roster_9: Object { value: "" }
