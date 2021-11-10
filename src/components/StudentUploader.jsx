@@ -7,6 +7,7 @@ import studentAvatar from "../asset/studentAvatar.svg";
 import {
   baseStudentFields,
   baseTeacherFields,
+  defaultTeacherFileds,
   cleanResults,
   rosterCount,
   uniqueRosters,
@@ -47,9 +48,9 @@ function StudentUploader() {
   };
 
   if (localRosters !== 0) {
-    localRosters.map((roster, i) => {
+    localRosters.map((_, i) => {
       baseTeacherFields.push({
-        label: "roster" + (i + 1),
+        label: "roster " + (i + 1),
         key: "roster_" + (i + 1),
         type: "select",
         selectOptions: localRosters,
@@ -92,10 +93,13 @@ function StudentUploader() {
             licenseKey={key}
             fields={baseStudentFields}
             settings={{
-              allowCustomFields: true,
-              importIdentifier: "Studnets",
+              importIdentifier: "Students",
+              title: "Upload your Students & Roster data!",
+              displayEncoding: false,
+              autoMapHeaders: true,
+              styleOverrides: {
+                global: { textColor: "#3b6fc8"}},
               developmentMode: true,
-              allowInvalidSubmit: true,
             }}
             user={siteLeader}
             onResults={resultHandler}

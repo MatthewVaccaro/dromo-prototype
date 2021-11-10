@@ -167,3 +167,10 @@ p {
 .mt-12 {
   margin-top: 12px;
 }
+
+.mt-200 {
+  margin-top: 200px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}

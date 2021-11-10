@@ -47,9 +47,11 @@ function TeacherUpload() {
           : "No Data Added"}
       </div>
       <ul>
-        <li> You can upload and edit your Student data as much as you want.</li>
-        <li>Adding Student data to your platform doesn’t create accounts.</li>
-        <li>Adding Rosters to Students is optional but powerful!</li>
+      
+
+        <li> You can upload and edit your Teacher data as much as you want.</li>
+        <li>Adding Teacher data doesn’t create their account or give them access to the LiveSchools.</li>
+        <li>Valid email address are required to uploading Teacher data.</li>
       </ul>
       <div className="buttonContainer">
         <div className="buttonSection">
@@ -58,9 +60,13 @@ function TeacherUpload() {
             licenseKey={key}
             fields={baseTeacherFields}
             settings={{
-              importIdentifier: "Studnets",
+              importIdentifier: "Teachers",
+              title: "Upload your Teacher data!",
+              displayEncoding: false,
+              autoMapHeaders: true,
+              styleOverrides: {
+                global: { textColor: "#3b6fc8"}},
               developmentMode: true,
-              allowCustomFields: true,
             }}
             user={siteLeader}
             onResults={resultHandler}

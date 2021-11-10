@@ -1,3 +1,37 @@
+export const defaultTeacherFileds = [
+  {
+    label: "First Name",
+    key: "first_name",
+    description: "Teacher's first name",
+    alternateMatches: ["fname", "given name", "birth name"],
+  },
+  {
+    label: "Last Name",
+    key: "last_name",
+    description: "Teacher's last name",
+    alternateMatches: ["lame", "surname", "family name"],
+  },
+  {
+    label: "Email",
+    key: "email",
+    validators: [{
+      validate: "regex_match",
+      regex: "^\\S+@\\S+\\.\\S+$",
+      errorMessage:
+        "Incorrect email address."
+    },
+    {
+      validate: "unique",
+      errorMessage: "Emails must be unique"
+    },
+    {
+      validate: "required",
+      errorMessage: "Email field can NOT be left empty"
+    }
+  ]
+  }
+];
+
 export const baseStudentFields = [
   {
     label: "First Name",
@@ -61,10 +95,12 @@ export const baseTeacherFields = [
 
 for (var i = 1; i < 11; i++) {
   baseStudentFields.push({
-    label: "roster" + i,
+    label: "roster " + i,
     key: "roster_" + i,
   });
 }
+
+console.log("5555", baseTeacherFields)
 
 export function uniqueRosters(cleanData) {
   var unique = ["n/a"];

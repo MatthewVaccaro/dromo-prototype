@@ -25,6 +25,8 @@ function App() {
           link="https://github.com/MatthewVaccaro/dromo-prototype"
         />
       </div>
+
+      <button className="mt-200" onClick={()=> localStorage.clear()} > Clear Data </button>
     </>
   );
 }
