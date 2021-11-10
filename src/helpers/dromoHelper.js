@@ -53,7 +53,22 @@ export const baseTeacherFields = [
   {
     label: "Email",
     key: "email",
-  },
+    validators: [{
+      validate: "regex_match",
+      regex: "^\\S+@\\S+\\.\\S+$",
+      errorMessage:
+        "Incorrect email address."
+    },
+    {
+      validate: "unique",
+      errorMessage: "Emails must be unique"
+    },
+    {
+      validate: "required",
+      errorMessage: "Email field can NOT be left empty"
+    }
+  ]
+  }
 ];
 
 for (var i = 1; i < 11; i++) {
@@ -75,20 +90,6 @@ export function uniqueRosters(cleanData) {
 
   return unique;
 }
-
-// const fakeRosterList = ["PE", "Science", "Math"];
-// fakeRosterList.map((value) => {
-//   baseStudentFields.push({
-//     label: value,
-//     key: value.split(" ").join("_"),
-//     type: "checkbox",
-//   });
-//   baseTeacherFields.push({
-//     label: value,
-//     key: value.split(" ").join("_"),
-//     type: "checkbox",
-//   });
-// });
 
 export function cleanResults(res) {
   res.map((obj) => {
