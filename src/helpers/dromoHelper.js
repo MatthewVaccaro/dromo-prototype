@@ -81,6 +81,7 @@ export const baseTeacherFields = [
       errorMessage:
         "Incorrect email address."
     },
+  
     {
       validate: "unique",
       errorMessage: "Emails must be unique"

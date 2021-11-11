@@ -1,13 +1,13 @@
 import download from "../asset/icons/download.svg";
 import sheetsIcon from "../asset/icons/sheetsIcon.svg";
 
-function TemplateCard({ headline, content, link }) {
+function TemplateCard({ headline, content, link, file }) {
   return (
     <div className="templateCard">
       <h2> {headline} </h2>
       <p>{content}</p>
       <div className="flexAlignCenter mt-12">
-        <a href={link} target="_blank" className="linkGroup">
+        <a href={file} download  className="linkGroup">
           <img src={download} alt="download icon" />
           <p className="blue">Download CSV</p>
         </a>

@@ -64,9 +64,9 @@ function TeacherUpload() {
               title: "Upload your Teacher data!",
               displayEncoding: false,
               autoMapHeaders: true,
-              styleOverrides: {
-                global: { textColor: "#3b6fc8"}},
-              developmentMode: true,
+              styleOverrides: { global: { textColor: "#3b6fc8"}},
+                manualInputDisabled: true,
+                developmentMode: true,
             }}
             user={siteLeader}
             onResults={resultHandler}
