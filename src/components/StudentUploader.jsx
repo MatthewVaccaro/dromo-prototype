@@ -82,9 +82,9 @@ function StudentUploader() {
           : "No Data Added"}
       </div>
       <ul>
-        <li> You can upload and edit your Student data as much as you want.</li>
-        <li>Adding Student data to your platform doesn’t create accounts.</li>
-        <li>Adding Rosters to Students is optional but powerful!</li>
+        <li> Create new students, or edit current students.</li>
+        <li>Optionally, add rosters details to students.</li>
+        <li>Adding students doesn't automatically invite them to use LiveSchool.</li>
       </ul>
       <div className="buttonContainer">
         <div className="buttonSection">

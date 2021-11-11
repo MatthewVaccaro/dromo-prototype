@@ -49,9 +49,9 @@ function TeacherUpload() {
       <ul>
       
 
-        <li> You can upload and edit your Teacher data as much as you want.</li>
-        <li>Adding Teacher data doesn’t create their account or give them access to the LiveSchools.</li>
-        <li>Valid email address are required to uploading Teacher data.</li>
+        <li> Create new teachers, or edit your existing staff data.</li>
+        <li>Creating teachers doesn't automatically invite them to LiveSchool; you'll do that later.</li>
+        <li>Optionally, cross-reference rosters from your Student Data upload to share rosters selectively.</li>
       </ul>
       <div className="buttonContainer">
         <div className="buttonSection">
@@ -103,7 +103,6 @@ function TeacherUpload() {
             alt="edit icon"
           />
           <button className={` ${teachers !== 0 ? "active" : "disabled"} `}>
-            {" "}
             Edit Data
           </button>
         </div>
@@ -113,9 +112,3 @@ function TeacherUpload() {
 }
 
 export default TeacherUpload;
-
-// roster_1: Object { value: "" }
-// ​​
-// roster_15: Object { value: "" }
-// ​​
-// roster_9: Object { value: "" }

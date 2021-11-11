@@ -17,14 +17,14 @@ function App() {
       <div className="App container mt-24">
         <TemplateCard
           headline="Student Data Template"
-          content="This template will provide details on how to setup your Student data correctly & how to use optinal rosters."
+          content="This template helps you get Students created correctly, and optionally create rosters."
           link="https://docs.google.com/spreadsheets/d/18T1NELEDMnRSQUN08SOZ1DZOLqEjoJFzzDtQlKG-08E/edit?usp=sharing"
           file={studentTemplateCSV}
         />
 
         <TemplateCard
           headline="Teacher Data Template"
-          content="A simple tempalte to help get your Teachers & their data setup quickly and easily."
+          content="This simple template helps you get Teachers created quickly and easily -- we'll automatically match columns."
           link="https://docs.google.com/spreadsheets/d/1a5qZY3w5kyGW1Xwhskhzd_Rpc9JIM8t_lEs63V0BZw8/edit?usp=sharing"
           file={teacherTemplateCSV}
         />
